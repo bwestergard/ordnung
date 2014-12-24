@@ -1,0 +1,18 @@
+{
+  "name": "ordnung",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "browserify": "^7.0.3",
+    "d3": "^3.5.2",
+    "dagre-d3": "^0.4.0",
+    "http-server": "^0.7.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bjorn Westergard",
+  "license": "ISC"
+}

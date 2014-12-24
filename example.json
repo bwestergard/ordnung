@@ -1,0 +1,48 @@
+[
+  {
+    "id": 0,
+    "description": "Science In Action",
+    "tags": "read philosophy"
+  },
+  {
+    "id": 1,
+    "description": "Conscience of the Revolution",
+    "tags": "read russia",
+    "dependencies": [2]
+  },
+  {
+    "id": 2,
+    "description": "A People's Tragedy",
+    "tags": "read russia"
+  },
+  {
+    "id": 3,
+    "description": "Short Course",
+    "tags": "read russia",
+    "dependencies": [2]
+  },
+  {
+    "id": 4,
+    "description": "The Bolsheviks Come to Power",
+    "tags": "read russia",
+    "dependencies": [2]
+  },
+  {
+    "id": 5,
+    "description": "Intention",
+    "tags": "read philosophy",
+    "dependencies": [6]
+  },
+  {
+    "id": 6,
+    "description": "Philosophical Investigations",
+    "tags": "read philosophy",
+    "dependencies": []
+  },
+  {
+    "id": 7,
+    "description": "Philosophical Investigations",
+    "tags": "read philosophy",
+    "dependencies": []
+  }
+]
