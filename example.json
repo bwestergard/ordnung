@@ -43,6 +43,6 @@
     "id": 7,
     "description": "RFM",
     "tags": "read philosophy",
-    "dependencies": []
+    "dependencies": [6]
   }
 ]
