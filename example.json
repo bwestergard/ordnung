@@ -2,7 +2,8 @@
   {
     "id": 0,
     "description": "Science In Action",
-    "tags": "read philosophy"
+    "tags": "read philosophy",
+    "dependencies": [6]
   },
   {
     "id": 1,
@@ -44,5 +45,47 @@
     "description": "RFM",
     "tags": "read philosophy",
     "dependencies": [6]
+  },
+  {
+    "id": 8,
+    "description": "Soviet Workers",
+    "tags": "russia economics",
+    "dependencies": [1, 3]
+  },
+  {
+    "id": 9,
+    "description": "Automating Thought",
+    "tags": "write",
+    "dependencies": [5, 10, 14]
+  },
+  {
+    "id": 10,
+    "description": "Uses of Knowledge",
+    "tags": "read",
+    "dependencies": []
+  },
+  {
+    "id": 11,
+    "description": "Western Union Labor Processes",
+    "tags": "write",
+    "dependencies": [12]
+  },
+  {
+    "id": 12,
+    "description": "Modern Telegraphy",
+    "tags": "read",
+    "dependencies": []
+  },
+  {
+    "id": 13,
+    "description": "Socialist Planning",
+    "tags": "write",
+    "dependencies": [8]
+  },
+  {
+    "id": 14,
+    "description": "Notes on LMC",
+    "tags": "write",
+    "dependencies": []
   }
 ]

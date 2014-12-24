@@ -29,7 +29,7 @@ window.onload = function () {
   console.log(edges);
 
   edges.forEach(function (edge) {
-    g.setEdge(edge[0], edge[1]);
+    g.setEdge(edge[1], edge[0]);
   });
 
   // Create the renderer
@@ -38,6 +38,7 @@ window.onload = function () {
   // Set up an SVG group so that we can translate the final graph.
   var svg = d3.select("svg"),
   svgGroup = svg.append("g");
+  svg.width
 
   // Run the renderer. This is what draws the final graph.
   render(d3.select("svg g"), g);
