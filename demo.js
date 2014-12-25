@@ -2,6 +2,11 @@ var _ = require('lodash');
 var d3 = require('d3');
 var dagreD3 = require('dagre-d3');
 var example = require('./example.json');
+var deps = require('./lib/deps');
+
+function trace(id) {
+  return deps(example, id).concat([id]);
+}
 
 window.onload = function () {
 
@@ -14,20 +19,18 @@ window.onload = function () {
   g.graph().ranksep = 80;
   g.graph().rankdir = 'BT';
 
-  console.log();
-
   // Here we're setting nodeclass, which is used by our custom drawNodes function
   // below.
 
-/*
+  var depset = trace(13);
   example = _.filter(example, function (item) {
-    return item.tags.indexOf('russia') > -1;
+    return _.contains(depset, item.id);
+//    return item.tags.indexOf('russia') > -1;
   });
-*/
 
   example.forEach(function (item) {
     g.setNode(item.id, {
-      label: item.description
+      label: item.description + ' (' + item.id + ')'
     });
   });
 
@@ -36,8 +39,6 @@ window.onload = function () {
       return [item.id, dependency];
     });
   }), true);
-
-  console.log(edges);
 
   edges.forEach(function (edge) {
     g.setEdge(edge[1], edge[0],
@@ -65,5 +66,10 @@ window.onload = function () {
   var xCenterOffset = (svg.attr("width") - g.graph().width) / 2;
   svgGroup.attr("transform", "translate(" + xCenterOffset + ", 20)");
   svg.attr("height", g.graph().height + 40);
+
+  g.graph().transition = function(selection) {
+    return selection.transition().duration(500);
+  };
+
 
 };

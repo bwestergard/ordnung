@@ -7,6 +7,7 @@
     "browserify": "^7.0.3",
     "d3": "^3.5.2",
     "dagre-d3": "^0.4.0",
+    "dependency-graph": "^0.1.0",
     "http-server": "^0.7.4",
     "lodash": "^2.4.1",
     "watchify": "^2.2.1"

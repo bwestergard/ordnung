@@ -14,7 +14,8 @@
   {
     "id": 2,
     "description": "A People's Tragedy",
-    "tags": "read russia"
+    "tags": "read russia",
+    "dependencies": []
   },
   {
     "id": 3,
@@ -54,7 +55,7 @@
   },
   {
     "id": 9,
-    "description": "Automating Thought",
+    "description": "Automating\n Thought",
     "tags": "write",
     "dependencies": [5, 10, 14]
   },
@@ -87,5 +88,23 @@
     "description": "Notes on LMC",
     "tags": "write",
     "dependencies": []
-  }
+  },
+  {
+    "id": 15,
+    "description": "Foo",
+    "tags": "test",
+    "dependencies": []
+  },
+  {
+    "id": 16,
+    "description": "BarBarBarBarBarBarBar",
+    "tags": "test",
+    "dependencies": [15]
+  },
+  {
+    "id": 17,
+    "description": "Baz",
+    "tags": "test",
+    "dependencies": [16]
+  },
 ]
