@@ -10,6 +10,9 @@ function trace(id) {
 
 window.onload = function () {
 
+  // Create the renderer
+  var render = new dagreD3.render();
+
   // Create the input graph
   var g = new dagreD3.graphlib.Graph()
     .setGraph({})
@@ -44,9 +47,6 @@ window.onload = function () {
     g.setEdge(edge[1], edge[0],
               { lineInterpolate: 'linear' });
   });
-
-  // Create the renderer
-  var render = new dagreD3.render();
 
   // Set up an SVG group so that we can translate the final graph.
   var svg = d3.select("svg"),
