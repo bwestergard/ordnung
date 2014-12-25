@@ -37,11 +37,15 @@ window.onload = function () {
     return selection.transition().duration(2000);
   };
 
-  draw(9);
+  draw(2);
 
   window.draw = draw;
 
   function draw(id) {
+
+    g.nodes().forEach(function (node) {
+      g.removeNode(node);
+    });
 
     // Here we're setting nodeclass, which is used by our custom drawNodes function
     // below.
