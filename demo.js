@@ -13,6 +13,17 @@ window.onload = function () {
   // Create the renderer
   var render = new dagreD3.render();
 
+  // Set up an SVG group so that we can translate the final graph.
+  var svg = d3.select("svg");
+  var svgGroup = svg.append("g");
+
+  // Set up zoom support
+  var zoom = d3.behavior.zoom().on("zoom", function() {
+    svgGroup.attr("transform", "translate(" + d3.event.translate + ")" +
+                  "scale(" + d3.event.scale + ")");
+  });
+  svg.call(zoom);
+
   // Create the input graph
   var g = new dagreD3.graphlib.Graph()
     .setGraph({})
@@ -47,17 +58,6 @@ window.onload = function () {
     g.setEdge(edge[1], edge[0],
               { lineInterpolate: 'linear' });
   });
-
-  // Set up an SVG group so that we can translate the final graph.
-  var svg = d3.select("svg"),
-  svgGroup = svg.append("g");
-
-  // Set up zoom support
-  var zoom = d3.behavior.zoom().on("zoom", function() {
-    svgGroup.attr("transform", "translate(" + d3.event.translate + ")" +
-                  "scale(" + d3.event.scale + ")");
-  });
-  svg.call(zoom);
   
   // Run the renderer. This is what draws the final graph.
   render(d3.select("svg g"), g);
