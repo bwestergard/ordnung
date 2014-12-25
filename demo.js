@@ -10,11 +10,22 @@ window.onload = function () {
     .setGraph({})
     .setDefaultEdgeLabel(function() { return {}; });
 
+  g.graph().nodesep = 20;
+  g.graph().ranksep = 80;
+  g.graph().rankdir = 'BT';
+
+  console.log();
+
   // Here we're setting nodeclass, which is used by our custom drawNodes function
   // below.
 
+/*
+  example = _.filter(example, function (item) {
+    return item.tags.indexOf('russia') > -1;
+  });
+*/
+
   example.forEach(function (item) {
-    console.log(item);
     g.setNode(item.id, {
       label: item.description
     });
@@ -29,7 +40,8 @@ window.onload = function () {
   console.log(edges);
 
   edges.forEach(function (edge) {
-    g.setEdge(edge[1], edge[0]);
+    g.setEdge(edge[1], edge[0],
+              { lineInterpolate: 'linear' });
   });
 
   // Create the renderer
@@ -38,8 +50,14 @@ window.onload = function () {
   // Set up an SVG group so that we can translate the final graph.
   var svg = d3.select("svg"),
   svgGroup = svg.append("g");
-  svg.width
 
+  // Set up zoom support
+  var zoom = d3.behavior.zoom().on("zoom", function() {
+    svgGroup.attr("transform", "translate(" + d3.event.translate + ")" +
+                  "scale(" + d3.event.scale + ")");
+  });
+  svg.call(zoom);
+  
   // Run the renderer. This is what draws the final graph.
   render(d3.select("svg g"), g);
 

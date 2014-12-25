@@ -80,7 +80,7 @@
     "id": 13,
     "description": "Socialist Planning",
     "tags": "write",
-    "dependencies": [8]
+    "dependencies": [8,9,11]
   },
   {
     "id": 14,
