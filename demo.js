@@ -33,43 +33,45 @@ window.onload = function () {
   g.graph().ranksep = 80;
   g.graph().rankdir = 'BT';
 
-  // Here we're setting nodeclass, which is used by our custom drawNodes function
-  // below.
-
-  var depset = trace(13);
-  example = _.filter(example, function (item) {
-    return _.contains(depset, item.id);
-//    return item.tags.indexOf('russia') > -1;
-  });
-
-  example.forEach(function (item) {
-    g.setNode(item.id, {
-      label: item.description + ' (' + item.id + ')'
-    });
-  });
-
-  var edges = _.flatten(_.map(example, function (item) {
-    return _.map(item.dependencies, function (dependency) {
-      return [item.id, dependency];
-    });
-  }), true);
-
-  edges.forEach(function (edge) {
-    g.setEdge(edge[1], edge[0],
-              { lineInterpolate: 'linear' });
-  });
-  
-  // Run the renderer. This is what draws the final graph.
-  render(d3.select("svg g"), g);
-
-  // Center the graph
-  var xCenterOffset = (svg.attr("width") - g.graph().width) / 2;
-  svgGroup.attr("transform", "translate(" + xCenterOffset + ", 20)");
-  svg.attr("height", g.graph().height + 40);
-
   g.graph().transition = function(selection) {
-    return selection.transition().duration(500);
+    return selection.transition().duration(2000);
   };
 
+  draw(9);
+
+  window.draw = draw;
+
+  function draw(id) {
+
+    // Here we're setting nodeclass, which is used by our custom drawNodes function
+    // below.
+
+    var depset = trace(id);
+    var filtered = _.filter(example, function (item) {
+      return _.contains(depset, item.id);
+      //    return item.tags.indexOf('russia') > -1;
+    });
+
+    filtered.forEach(function (item) {
+      g.setNode(item.id, {
+        label: item.description + ' (' + item.id + ')'
+      });
+    });
+
+    var edges = _.flatten(_.map(filtered, function (item) {
+      return _.map(item.dependencies, function (dependency) {
+        return [item.id, dependency];
+      });
+    }), true);
+
+    edges.forEach(function (edge) {
+      g.setEdge(edge[1], edge[0],
+                { lineInterpolate: 'linear' });
+    });
+    
+    // Run the renderer. This is what draws the final graph.
+    render(d3.select("svg g"), g);
+
+  }
 
 };
