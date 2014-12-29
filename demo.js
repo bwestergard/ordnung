@@ -37,7 +37,7 @@ window.onload = function () {
     return selection.transition().duration(1000);
   };
 
-  draw(2);
+  draw();
 
   window.draw = draw;
 

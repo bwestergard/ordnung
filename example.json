@@ -107,4 +107,34 @@
     "tags": "test",
     "dependencies": [16]
   },
+  {
+    "id": 18,
+    "description": "Clean Room",
+    "tags": "household",
+    "dependencies": []
+  },
+  {
+    "id": 19,
+    "description": "Build Bookshelf #1",
+    "tags": "household",
+    "dependencies": [22]
+  },
+  {
+    "id": 20,
+    "description": "Build Bookshelf #2",
+    "tags": "household",
+    "dependencies": [22]
+  },
+  {
+    "id": 21,
+    "description": "Build Bookshelf #3",
+    "tags": "household",
+    "dependencies": [22]
+  },
+  {
+    "id": 22,
+    "description": "Buy tools",
+    "tags": "household",
+    "dependencies": []
+  }
 ]
