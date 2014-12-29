@@ -5,18 +5,28 @@ var example = require('./example.json');
 var deps = require('./lib/deps');
 require('angular/angular');
 
+angular.module("ordnung", []);
+
+
+angular.
+  module("ordnung").
+  controller('main', ['$scope', function($scope) {
+    $scope.tasks = example;
+  }]).
+  directive("depchart", function () {
+    return {
+      restrict: 'E',
+      scope: true,
+      template: '<pre>{{ tasks | json:2 }}</pre>'
+      //    template: '<div><svg id="svg-canvas" width="1024" height="500"></svg></div>'
+    };
+  });
+
+/*
+
 function trace(id) {
   return deps(example, id).concat([id]);
 }
-
-angular.module("ordnung", []);
-
-angular.module("ordnung").directive("depchart", function () {
-  return {
-    restrict: 'E',
-    template: '<div>depchart goes here</div>'
-  };
-});
 
 window.onload = function () {
 
@@ -93,3 +103,5 @@ window.onload = function () {
   }
 
 };
+
+*/
