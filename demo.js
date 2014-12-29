@@ -34,7 +34,7 @@ window.onload = function () {
   g.graph().rankdir = 'BT';
 
   g.graph().transition = function(selection) {
-    return selection.transition().duration(2000);
+    return selection.transition().duration(1000);
   };
 
   draw(2);
@@ -50,11 +50,15 @@ window.onload = function () {
     // Here we're setting nodeclass, which is used by our custom drawNodes function
     // below.
 
-    var depset = trace(id);
-    var filtered = _.filter(example, function (item) {
-      return _.contains(depset, item.id);
-      //    return item.tags.indexOf('russia') > -1;
-    });
+    if (id) {
+      var depset = trace(id);
+      var filtered = _.filter(example, function (item) {
+        return _.contains(depset, item.id);
+        //    return item.tags.indexOf('russia') > -1;
+      });
+    } else {
+      var filtered = example;
+    }
 
     filtered.forEach(function (item) {
       g.setNode(item.id, {
