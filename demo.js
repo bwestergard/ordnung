@@ -3,10 +3,20 @@ var d3 = require('d3');
 var dagreD3 = require('dagre-d3');
 var example = require('./example.json');
 var deps = require('./lib/deps');
+require('angular/angular');
 
 function trace(id) {
   return deps(example, id).concat([id]);
 }
+
+angular.module("ordnung", []);
+
+angular.module("ordnung").directive("depchart", function () {
+  return {
+    restrict: 'E',
+    template: '<div>depchart goes here</div>'
+  };
+});
 
 window.onload = function () {
 
