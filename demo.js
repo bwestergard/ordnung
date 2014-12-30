@@ -19,6 +19,10 @@ angular.
     function trace(tasks, goal) {
       return deps(example, goal).concat([goal]);
     }
+/*
+      .attr("title", function(v) { return styleTooltip(v, g.node(v).description) })
+      .each(function(v) { $(this).tipsy({ gravity: "w", opacity: 1, html: true }); });
+*/
 
     var link = function ($scope, $el, $attrs) {
 
@@ -48,7 +52,7 @@ angular.
       g.graph().rankdir = 'BT';
 
       g.graph().transition = function(selection) {
-        return selection.transition().duration(1000);
+        return selection.transition().duration(2000);
       };
 
       $scope.$watch('tasks', update);
@@ -75,7 +79,8 @@ angular.
 
         filtered.forEach(function (item) {
           g.setNode(item.id, {
-            label: item.description + ' (' + item.id + ')'
+            label: item.description + ' (' + item.id + ')',
+            id: item.id
           });
         });
 
@@ -92,6 +97,16 @@ angular.
         
         // Run the renderer. This is what draws the final graph.
         render(d3.select("svg g"), g);
+
+        d3.selectAll("svg g.node").on('click', function (d) {
+          console.log('click');
+          $scope.$apply(function () {
+            var parsed = parseInt(d);
+            $scope.goal = ($scope.goal === parsed) ?
+              null :
+              parsed;
+          });
+        });
 
       };
 
