@@ -7,36 +7,42 @@
 <script src="bundle.js"></script>
 
 <style id="css">
-/* This sets the color for "TK" nodes to a light blue green. */
-g.type-TK > rect {
-  fill: #00ffd0;
-}
 
 text {
   font-weight: 300;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
-  font-size: 14px;
+  font-size: 32px;
 }
 
 .node rect {
-  stroke: #999;
-  fill: #fff;
+  padding: 20px;
+  fill: rgba(255,255,255, 0.8);
   stroke-width: 1.5px;
 }
 
 .edgePath path {
-  stroke: #333;
-  stroke-width: 1.5px;
+  stroke: rgba(0, 0, 0, 0.8);
+  stroke-width: 4px;
+}
+
+marker {
+fill: rgba(0, 0, 0, 1);
+stroke: rgba(255, 255, 255, 0.8);
 }
 
 #svg-canvas {
-  border: 1px solid grey;
+  background: #F0DEC6;
+}
+
+.selected rect {
+fill: #000000;
+}
+
+.selected text {
+  fill: #ffffff;
 }
 </style>
 
-<div ng-app="ordnung" ng-controller="main">
-  <form name="testForm">
-    <input type="number" ng-model="goal" />
-  </form>
+<div ng-app="ordnung" ng-controller="main">  
   <depchart></depchart>
 </div>

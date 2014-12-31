@@ -7,7 +7,6 @@ require('angular/angular');
 
 angular.module("ordnung", []);
 
-
 angular.
   module("ordnung").
   controller('main', ['$scope', function($scope) {
@@ -49,7 +48,7 @@ angular.
 
       g.graph().nodesep = 20;
       g.graph().ranksep = 80;
-      g.graph().rankdir = 'BT';
+      g.graph().rankdir = 'RL';
 
       g.graph().transition = function(selection) {
         return selection.transition().duration(2000);
@@ -79,7 +78,7 @@ angular.
 
         filtered.forEach(function (item) {
           g.setNode(item.id, {
-            label: item.description + ' (' + item.id + ')',
+            label: item.description,
             id: item.id
           });
         });
@@ -91,10 +90,16 @@ angular.
         }), true);
 
         edges.forEach(function (edge) {
-          g.setEdge(edge[1], edge[0],
+          g.setEdge(edge[0], edge[1],
                     { lineInterpolate: 'linear' });
         });
-        
+
+        if ($scope.goal) {
+          d3.select('[id="' + $scope.goal + '"]').classed('selected', true);
+        } else {
+          d3.selectAll('.node').classed('selected', false);
+        }        
+
         // Run the renderer. This is what draws the final graph.
         render(d3.select("svg g"), g);
 
@@ -116,6 +121,6 @@ angular.
       restrict: 'E',
       scope: '=',
       link: link,
-      template: '<div> <p>Goal: {{ goal }}</p> <svg id="svg-canvas" width="2000" height="500"></svg></div>'
+      template: '<svg id="svg-canvas" width="2000" height="2000"></svg>'
     };
   });

@@ -135,6 +135,36 @@
     "id": 22,
     "description": "Buy tools",
     "tags": "household",
+    "dependencies": [23]
+  },
+  {
+    "id": 23,
+    "description": "Buy tools",
+    "tags": "household",
+    "dependencies": [24]
+  },
+  {
+    "id": 24,
+    "description": "Buy tools",
+    "tags": "household",
+    "dependencies": [25]
+  },
+  {
+    "id": 25,
+    "description": "Buy tools",
+    "tags": "household",
+    "dependencies": [26]
+  },
+  {
+    "id": 26,
+    "description": "Buy tools",
+    "tags": "household",
+    "dependencies": [27]
+  },
+  {
+    "id": 27,
+    "description": "Buy tools",
+    "tags": "household",
     "dependencies": []
   }
 ]
