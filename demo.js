@@ -5,13 +5,12 @@ var example = require('./example.json');
 var deps = require('./lib/deps');
 require('angular/angular');
 
-angular.module("ordnung", []);
+var ordnung = angular.module('ordnung', ['ng-sortable']);
 
-angular.
-  module("ordnung").
+ordnung.
   controller('main', ['$scope', function($scope) {
     $scope.tasks = example;
-    $scope.goal = 13;
+    $scope.goal = null;
   }]).
   directive("depchart", function () {
 

@@ -11,6 +11,7 @@
     "dependency-graph": "^0.1.0",
     "http-server": "^0.7.4",
     "lodash": "^2.4.1",
+    "sortablejs": "git://github.com/RubaXa/Sortable",
     "watchify": "^2.2.1"
   },
   "devDependencies": {},

@@ -6,6 +6,10 @@
 
 <script src="bundle.js"></script>
 
+
+<script src="node_modules/sortablejs/Sortable.js"></script>
+<script src="node_modules/sortablejs/ng-sortable.js"></script>
+
 <style id="css">
   body {
   margin: 0;
@@ -15,7 +19,7 @@
   #leftCol {
   position: fixed;
   width: 25%;
-  background-color: hsl(34.3, 61%, 71%); 
+  background-color: hsl(34.3, 58.3%, 85%);; 
   font-size: 21px;
   overflow-y: scroll;
   top: 0;
@@ -27,7 +31,9 @@
   margin-left: 25%;
   }
 
-  text {
+  
+
+  body {
   font-weight: 300;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
   font-size: 32px;
@@ -40,17 +46,16 @@
   }
 
   .edgePath path {
-  stroke: rgba(0, 0, 0, 0.8);
+  stroke: hsl(34.3, 61%, 20%);
   stroke-width: 4px;
   }
 
   marker {
-  fill: rgba(0, 0, 0, 1);
-  stroke: rgba(255, 255, 255, 0.8);
+  fill: hsl(34.3, 61%, 20%);
   }
 
   #svg-canvas {
-  background: #F0DEC6;
+  background: hsl(34.3, 58.3%, 90%);
   }
 
   .selected rect {
@@ -63,7 +68,13 @@
 </style>
 
 <body ng-app="ordnung" ng-controller="main">
-  <div id="leftCol">Sidebar</div>
+  <div id="leftCol">
+    <ul ng-sortable="{animation:150}">
+      <li ng-repeat="task in tasks">
+        {{ task.description }}
+      </li>
+    </ul>
+  </div>
 
   <div id="content">  
     <depchart></depchart>
