@@ -7,42 +7,65 @@
 <script src="bundle.js"></script>
 
 <style id="css">
+  body {
+  margin: 0;
+  padding: 0;
+  }
 
-text {
+  #leftCol {
+  position: fixed;
+  width: 25%;
+  background-color: hsl(34.3, 61%, 71%); 
+  font-size: 21px;
+  overflow-y: scroll;
+  top: 0;
+  bottom: 0;
+  }
+
+  #content {
+  position: relative;            
+  margin-left: 25%;
+  }
+
+  text {
   font-weight: 300;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
   font-size: 32px;
-}
+  }
 
-.node rect {
+  .node rect {
   padding: 20px;
   fill: rgba(255,255,255, 0.8);
   stroke-width: 1.5px;
-}
+  }
 
-.edgePath path {
+  .edgePath path {
   stroke: rgba(0, 0, 0, 0.8);
   stroke-width: 4px;
-}
+  }
 
-marker {
-fill: rgba(0, 0, 0, 1);
-stroke: rgba(255, 255, 255, 0.8);
-}
+  marker {
+  fill: rgba(0, 0, 0, 1);
+  stroke: rgba(255, 255, 255, 0.8);
+  }
 
-#svg-canvas {
+  #svg-canvas {
   background: #F0DEC6;
-}
+  }
 
-.selected rect {
-fill: #000000;
-}
+  .selected rect {
+  fill: #000000;
+  }
 
-.selected text {
+  .selected text {
   fill: #ffffff;
-}
+  }
 </style>
 
-<div ng-app="ordnung" ng-controller="main">  
-  <depchart></depchart>
-</div>
+<body ng-app="ordnung" ng-controller="main">
+  <div id="leftCol">Sidebar</div>
+
+  <div id="content">  
+    <depchart></depchart>
+  </div>
+</body>
