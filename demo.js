@@ -9,6 +9,7 @@ var ordnung = angular.module('ordnung', ['ng-sortable']);
 
 ordnung.
   controller('main', ['$scope', function($scope) {
+    window.mainscope = $scope;
     $scope.tasks = example;
     $scope.goal = null;
   }]).
@@ -50,10 +51,10 @@ ordnung.
       g.graph().rankdir = 'RL';
 
       g.graph().transition = function(selection) {
-        return selection.transition().duration(2000);
+        return selection.transition().duration(800);
       };
 
-      $scope.$watch('tasks', update);
+      $scope.$watch('tasks', update, true);
       $scope.$watch('goal', update);
 
       function update() {
@@ -118,7 +119,7 @@ ordnung.
 
     return {
       restrict: 'E',
-      scope: '=',
+      scope: true,
       link: link,
       template: '<svg id="svg-canvas" width="2000" height="2000"></svg>'
     };
