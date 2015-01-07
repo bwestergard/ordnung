@@ -48,7 +48,7 @@ ordnung.
 
       g.graph().nodesep = 20;
       g.graph().ranksep = 80;
-      g.graph().rankdir = 'RL';
+      g.graph().rankdir = 'LR';
 
       g.graph().transition = function(selection) {
         return selection.transition().duration(800);
@@ -90,7 +90,7 @@ ordnung.
         }), true);
 
         edges.forEach(function (edge) {
-          g.setEdge(edge[0], edge[1],
+          g.setEdge(edge[1], edge[0],
                     { lineInterpolate: 'linear' });
         });
 
