@@ -3,25 +3,34 @@ var d3 = require('d3');
 var dagreD3 = require('dagre-d3');
 var example = require('./example.json');
 var deps = require('./lib/deps');
+var ngEnter = require('./lib/ngEnter.js');
 require('angular/angular');
 
 var ordnung = angular.module('ordnung', ['ng-sortable']);
+
+ordnung.directive('ngEnter', ngEnter);
 
 ordnung.
   controller('main', ['$scope', function($scope) {
     window.mainscope = $scope;
     $scope.tasks = example;
     $scope.goal = null;
+
+    $scope.addDependency = function () {
+      console.log($scope);
+      var id = $scope.tasks.length + 1;
+      $scope.tasks.push({
+        'id': id,
+        'description': '',
+        "dependencies": []
+      });
+    };
   }]).
   directive("depchart", function () {
 
     function trace(tasks, goal) {
       return deps(example, goal).concat([goal]);
     }
-/*
-      .attr("title", function(v) { return styleTooltip(v, g.node(v).description) })
-      .each(function(v) { $(this).tipsy({ gravity: "w", opacity: 1, html: true }); });
-*/
 
     var link = function ($scope, $el, $attrs) {
 

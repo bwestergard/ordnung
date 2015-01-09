@@ -117,13 +117,14 @@
                                  debounce: {'default': 500, 'blur': 0} }"
                ng-model="task.description"
                ng-focus="task.showDetails=true;"
-               ng-blur="task.showDetails=false;" />
+               ng-blur="task.showDetails=false;"/>
         <ul>
           <li class="dependency" ng-repeat="dep in task.dependencies" ng-show="task.showDetails">
             <input class="dependency" type="text"
                    ng-model="tasks[dep].description"
                    ng-focus="task.showDetails=true;"
-                   ng-blur="task.showDetails=false;">
+                   ng-blur="task.showDetails=false;"
+                   ng-enter="addDependency()">
           </li>
         </ul>
       </li>
