@@ -100,7 +100,7 @@ ordnung.
 
         edges.forEach(function (edge) {
           g.setEdge(edge[1], edge[0],
-                    { lineInterpolate: 'linear' });
+                    { lineInterpolate: 'basis' });
         });
 
         if ($scope.goal) {
