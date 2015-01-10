@@ -4,11 +4,13 @@ var dagreD3 = require('dagre-d3');
 var example = require('./example.json');
 var deps = require('./lib/deps');
 var ngEnter = require('./lib/ngEnter.js');
+var ngBackspace = require('./lib/ngBackspace.js');
 require('angular/angular');
 
 var ordnung = angular.module('ordnung', ['ng-sortable']);
 
 ordnung.directive('ngEnter', ngEnter);
+ordnung.directive('ngBackspace', ngBackspace);
 
 ordnung.
   controller('main', ['$scope', function($scope) {
@@ -25,6 +27,16 @@ ordnung.
       });
       task.dependencies.push(id);
     };
+
+    $scope.deleteTask = function (dead_task) {
+      $scope.tasks.forEach(function (task) {
+        _.pull(task.dependencies, dead_task.id);
+      });
+      $scope.tasks = _.filter($scope.tasks, function (task) {
+        return task.id != dead_task.id;
+      });
+    };
+
   }]).
   directive("depchart", function () {
 
