@@ -16,14 +16,14 @@ ordnung.
     $scope.tasks = example;
     $scope.goal = null;
 
-    $scope.addDependency = function () {
-      console.log($scope);
-      var id = $scope.tasks.length + 1;
+    $scope.addDependency = function (task) {
+      var id = $scope.tasks.length;
       $scope.tasks.push({
         'id': id,
-        'description': '',
+        'description': 'New Item',
         "dependencies": []
       });
+      task.dependencies.push(id);
     };
   }]).
   directive("depchart", function () {

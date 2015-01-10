@@ -124,7 +124,7 @@
                    ng-model="tasks[dep].description"
                    ng-focus="task.showDetails=true;"
                    ng-blur="task.showDetails=false;"
-                   ng-enter="addDependency()">
+                   ng-enter="addDependency(task)">
           </li>
         </ul>
       </li>
