@@ -9,7 +9,7 @@ To put it mathematically:  The dependency relations between your tasks taken tog
 Usage
 -----
 
-*Ordnung* is totall alpha. To hack around, run...
+*Ordnung* is totally alpha. To hack around, run...
 
 ```bash
 npm install
