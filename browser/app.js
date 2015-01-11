@@ -14,12 +14,8 @@ ordnung.directive('ngBackspace', ngBackspace);
 
 ordnung.
   controller('main', ['$scope', function($scope) {
-    window.mainscope = $scope;
     $scope.tasks = example;
     $scope.goal = null;
-
-    window.lodash = _;
-    window.scope = $scope;
 
     $scope.addDependency = function (task) {
       var id = _.max(_.pluck($scope.tasks, 'id')) + 1;
