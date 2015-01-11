@@ -1,10 +1,10 @@
 var _ = require('lodash');
 var d3 = require('d3');
 var dagreD3 = require('dagre-d3');
-var example = require('./example.json');
 var deps = require('./lib/deps');
 var ngEnter = require('./lib/ngEnter.js');
 var ngBackspace = require('./lib/ngBackspace.js');
+var mainController = require('./lib/mainController');
 require('angular/angular');
 
 var ordnung = angular.module('ordnung', ['ng-sortable']);
@@ -12,35 +12,11 @@ var ordnung = angular.module('ordnung', ['ng-sortable']);
 ordnung.directive('ngEnter', ngEnter);
 ordnung.directive('ngBackspace', ngBackspace);
 
-ordnung.
-  controller('main', ['$scope', function($scope) {
-    $scope.tasks = example;
-    $scope.goal = null;
-
-    $scope.addDependency = function (task) {
-      var id = _.max(_.pluck($scope.tasks, 'id')) + 1;
-      $scope.tasks.push({
-        'id': id,
-        'description': 'New Item',
-        "dependencies": []
-      });
-      task.dependencies.push(id);
-    };
-
-    $scope.deleteTask = function (dead_task) {
-      $scope.tasks.forEach(function (task) {
-        _.pull(task.dependencies, dead_task.id);
-      });
-      $scope.tasks = _.filter($scope.tasks, function (task) {
-        return task.id != dead_task.id;
-      });
-    };
-
-  }]).
+ordnung.controller('main', ['$scope', mainController]).
   directive("depchart", function () {
 
     function trace(tasks, goal) {
-      return deps(example, goal).concat([goal]);
+      return deps(tasks, goal).concat([goal]);
     }
 
     var link = function ($scope, $el, $attrs) {
