@@ -14,11 +14,13 @@
   },
   "devDependencies": {
     "http-server": "^0.7.4",
+    "jshint": "^2.5.11",
     "watchify": "^2.2.1"
   },
   "scripts": {
     "build-js": "browserify browser/app.js > static/bundle.js",
     "watch-js": "watchify browser/app.js -d -o static/bundle.js -v",
+    "lint": "jshint browser/*",
     "build": "npm run build-js",
     "watch": "npm run watch-js & http-server",
     "test": "echo \"Error: no test specified\" && exit 1"

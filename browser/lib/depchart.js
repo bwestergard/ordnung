@@ -49,7 +49,7 @@ module.exports = function () {
       // below.
 
       if ($scope.goal) {
-        var depset = deps($scope.tasks, $scope.goal);g
+        var depset = deps($scope.tasks, $scope.goal);
         var filtered = _.filter($scope.tasks, function (item) {
           return _.contains(depset, item.id);
           //    return item.tags.indexOf('russia') > -1;
