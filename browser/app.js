@@ -4,10 +4,8 @@ var mainController = require('./lib/mainController');
 var depchart = require('./lib/depchart');
 require('angular/angular');
 
-var ordnung = angular.module('ordnung', ['ng-sortable']);
-
-ordnung.directive('ngEnter', ngEnter);
-ordnung.directive('ngBackspace', ngBackspace);
-
-ordnung.controller('main', ['$scope', mainController]);
-ordnung.directive('depchart', depchart);
+angular.module('ordnung', ['ng-sortable']).
+  controller('main', ['$scope', mainController]).
+  directive('ngEnter', ngEnter).
+  directive('ngBackspace', ngBackspace).
+  directive('depchart', depchart);
