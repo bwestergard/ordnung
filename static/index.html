@@ -108,7 +108,7 @@
 
 <body ng-app="ordnung" ng-controller="main">
   <div id="leftCol">
-    <ul ng-sortable ng-sortable-item-selector="li">
+    <ul ng-sortable="{ group: 'tasks' }" ng-sortable-item-selector="li">
       <li ng-repeat="task in tasks">
         <input class="underlined"
                name="description"
