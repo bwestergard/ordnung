@@ -10,7 +10,7 @@
     "dagre-d3": "^0.4.0",
     "dependency-graph": "^0.1.0",
     "lodash": "^2.4.1",
-    "sortablejs": "git://github.com/RubaXa/Sortable"
+    "sortablejs": "git://github.com/RubaXa/Sortable#26f148c"
   },
   "devDependencies": {
     "http-server": "^0.7.4",
