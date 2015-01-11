@@ -47,11 +47,10 @@ module.exports = function () {
       // below.
 
       var filtered;
-      if ($scope.goal) {
+      if ($scope.goal !== null) {
         var depset = deps($scope.tasks, $scope.goal);
         filtered = _.filter($scope.tasks, function (item) {
           return _.contains(depset, item.id);
-          //    return item.tags.indexOf('russia') > -1;
         });
       } else {
         filtered = $scope.tasks;
