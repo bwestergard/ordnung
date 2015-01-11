@@ -18,8 +18,11 @@ ordnung.
     $scope.tasks = example;
     $scope.goal = null;
 
+    window.lodash = _;
+    window.scope = $scope;
+
     $scope.addDependency = function (task) {
-      var id = $scope.tasks.length;
+      var id = _.max(_.pluck($scope.tasks, 'id')) + 1;
       $scope.tasks.push({
         'id': id,
         'description': 'New Item',
