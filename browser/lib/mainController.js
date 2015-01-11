@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var example = require('../example.json');
 
 module.exports = function($scope) {

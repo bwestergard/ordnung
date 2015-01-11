@@ -1,110 +1,13 @@
-
 <!doctype html>
 
 <meta charset="utf-8">
 <title>Ordnung</title>
 
-<script src="bundle.js"></script>
+<link rel="stylesheet" type="text/css" href="css/main.css">
 
+<script src="bundle.js"></script>
 <script src="../node_modules/sortablejs/Sortable.js"></script>
 <script src="../node_modules/sortablejs/ng-sortable.js"></script>
-
-<style id="css">
-  body {
-  margin: 0;
-  padding: 0;
-  }
-
-  #leftCol {
-  position: fixed;
-  width: 25%;
-  background-color: hsl(34.3, 58.3%, 85%); 
-  font-size: 21px;
-  overflow-y: scroll;
-  top: 0;
-  bottom: 0;
-  padding: 0;
-  margin: 0;
-  }
-
-  #leftCol ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  }
-
-  #leftCol li {
-  margin: 0;
-  padding: 1em;
-  background: rgba(255,255,255, 0.8);
-  border-bottom: solid 1px hsl(34.3, 58.3%, 85%);
-  }
-
-  #leftCol li.dependency {
-  margin: 0;
-  padding: 1em;
-  background: rgba(255,255,255, 0);
-  border-bottom: solid 1px hsl(34.3, 58.3%, 85%);
-  }
-
-  #content {
-  position: relative;            
-  margin-left: 25%;
-  }
-
-  body {
-  font-weight: 300;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
-  font-size: 32px;
-  }
-
-  .node rect {
-  padding: 20px;
-  fill: rgba(255,255,255, 0.8);
-  stroke-width: 1.5px;
-  }
-
-  .edgePath path {
-  stroke: hsl(34.3, 61%, 20%);
-  stroke-width: 4px;
-  }
-
-  marker {
-  fill: hsl(34.3, 61%, 20%);
-  }
-
-  #svg-canvas {
-  background: hsl(34.3, 58.3%, 90%);
-  }
-
-  .selected rect {
-  fill: #000000;
-  }
-
-  .selected text {
-  fill: #ffffff;
-  }
-
-  input.underlined, input.dependency
-  {
-  width: 80%;
-  margin-right: 2em;
-  background: rgba(0,0,0,0);
-  font-size: 20px;
-  border:0;
-  border-bottom:solid 1px rgba(255,255,255, 0);
-  outline:none; /* prevents textbox highlight in chrome */
-  }
-
-  input.dependency {
-  margin-left: 0.5em;
-  }
-  
-  #leftCol li.dependency {
-  border-bottom: none;
-  padding-bottom: 0;
-  }
-</style>
 
 <body ng-app="ordnung" ng-controller="main">
   <div id="leftCol">
