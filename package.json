@@ -16,6 +16,8 @@
   },
   "devDependencies": {},
   "scripts": {
+    "build-js": "browserify browser/app.js > static/bundle.js",
+    "build": "npm run build-js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Bjorn Westergard",
