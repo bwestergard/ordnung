@@ -101,4 +101,4 @@ module.exports = function () {
     link: link,
     template: '<svg id="svg-canvas" width="2000" height="2000"></svg>'
   };
-}
+};

@@ -3,7 +3,7 @@ var DepGraph = require('dependency-graph').DepGraph;
 
 module.exports = function(tasks, goal) {
   return dependenciesOfItem(tasks, goal).concat([goal]);
-}
+};
 
 function dependenciesOfItem(items, id) {
   var graph = new DepGraph();
@@ -21,4 +21,4 @@ function dependenciesOfItem(items, id) {
   return graph.dependenciesOf(id).map(function (x) {
     return parseInt(x);
   });
-};
+}
