@@ -7,8 +7,6 @@ module.exports = function () {
 
   var link = function ($scope, $el, $attrs) {
 
-    // Setup
-
     // Create the renderer
     var render = new dagreD3.render();
 
