@@ -48,14 +48,15 @@ module.exports = function () {
       // Here we're setting nodeclass, which is used by our custom drawNodes function
       // below.
 
+      var filtered;
       if ($scope.goal) {
         var depset = deps($scope.tasks, $scope.goal);
-        var filtered = _.filter($scope.tasks, function (item) {
+        filtered = _.filter($scope.tasks, function (item) {
           return _.contains(depset, item.id);
           //    return item.tags.indexOf('russia') > -1;
         });
       } else {
-        var filtered = $scope.tasks;
+        filtered = $scope.tasks;
       }
 
       filtered.forEach(function (item) {
