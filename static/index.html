@@ -28,7 +28,8 @@
                    ng-model="tasks[dep].description"
                    ng-focus="task.showDetails=true;"
                    ng-blur="task.showDetails=false;"
-                   ng-enter="addDependency(task)">
+                   ng-enter="addDependency(task, $event)"
+                   init-focus>
           </li>
         </ul>
       </li>

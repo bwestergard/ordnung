@@ -9,7 +9,7 @@ module.exports = function($scope) {
     var id = _.max(_.pluck($scope.tasks, 'id')) + 1;
     $scope.tasks.push({
       'id': id,
-      'description': 'New Item',
+      'description': '',
       "dependencies": []
     });
     task.dependencies.push(id);
