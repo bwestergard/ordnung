@@ -25,7 +25,6 @@
         <ul>
           <li class="dependency" ng-repeat="(i, dep) in task.dependencies" ng-show="task.showDetails">
             <input class="dependency" type="number"
-                   ng-model="task.dependencies[i]"
                    ng-focus="task.showDetails=true;"
                    ng-blur="task.showDetails=false;"
                    ng-enter="addDependency(task, $event)"

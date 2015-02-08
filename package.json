@@ -8,6 +8,7 @@
     "browserify": "^7.0.3",
     "d3": "^3.5.2",
     "dagre-d3": "^0.4.0",
+    "debowerify": "^1.2.0",
     "dependency-graph": "^0.1.0",
     "lodash": "^2.4.1",
     "sortablejs": "git://github.com/RubaXa/Sortable#26f148c"
@@ -18,8 +19,8 @@
     "watchify": "^2.2.1"
   },
   "scripts": {
-    "build-js": "browserify browser/app.js > static/bundle.js",
-    "watch-js": "watchify browser/app.js -d -o static/bundle.js -v",
+    "build-js": "browserify -t debowerify browser/app.js > static/bundle.js",
+    "watch-js": "watchify -t debowerify browser/app.js -d -o static/bundle.js -v",
     "lint": "jshint browser/*",
     "build": "npm run build-js",
     "watch": "npm run watch-js & http-server",
